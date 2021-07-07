@@ -22,3 +22,7 @@ INSERT INTO tb_resource (title, description, position, img_uri, type, offer_id)
         ('Forum', 'Tire suas dúvidas', 2, 'https://c.pxhere.com/images/84/de/c46800ed7f9823cc820f44de5898-1575569.jpg!d', 2, 1),
         ('Lives', 'Lives exclusivas para a turma', 3, 'https://c.pxhere.com/images/84/de/c46800ed7f9823cc820f44de5898-1575569.jpg!d', 0, 1);
 
+INSERT INTO tb_section (title, description, position, img_uri, resource_id, prerequisite_id)
+    VALUES ('Capítulo 1', 'Apresentação do curso', 1, 'https://c.pxhere.com/images/84/de/c46800ed7f9823cc820f44de5898-1575569.jpg!d', 1, null),
+        ('Capítulo 2', 'Conceitos de tags', 2, 'https://c.pxhere.com/images/84/de/c46800ed7f9823cc820f44de5898-1575569.jpg!d', 1, 1),
+        ('Capítulo 3', 'Conhecendo tags avançadas', 2, 'https://c.pxhere.com/images/84/de/c46800ed7f9823cc820f44de5898-1575569.jpg!d', 1, 2);
