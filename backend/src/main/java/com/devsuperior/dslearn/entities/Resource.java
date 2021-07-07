@@ -24,9 +24,11 @@ public class Resource implements Serializable {
     private Integer position;
     private String imgUri;
     private ResourceType type;
+
     @ManyToOne
     @JoinColumn(name = "offer_id")
     private Offer offer;
+
     @OneToMany(mappedBy = "resource")
     private List<Section> sections = new ArrayList<>();
 }

@@ -26,3 +26,4 @@ INSERT INTO tb_section (title, description, position, img_uri, resource_id, prer
     VALUES ('Capítulo 1', 'Apresentação do curso', 1, 'https://c.pxhere.com/images/84/de/c46800ed7f9823cc820f44de5898-1575569.jpg!d', 1, null),
         ('Capítulo 2', 'Conceitos de tags', 2, 'https://c.pxhere.com/images/84/de/c46800ed7f9823cc820f44de5898-1575569.jpg!d', 1, 1),
         ('Capítulo 3', 'Conhecendo tags avançadas', 2, 'https://c.pxhere.com/images/84/de/c46800ed7f9823cc820f44de5898-1575569.jpg!d', 1, 2);
+
