@@ -27,3 +27,7 @@ INSERT INTO tb_section (title, description, position, img_uri, resource_id, prer
         ('Capítulo 2', 'Conceitos de tags', 2, 'https://c.pxhere.com/images/84/de/c46800ed7f9823cc820f44de5898-1575569.jpg!d', 1, 1),
         ('Capítulo 3', 'Conhecendo tags avançadas', 2, 'https://c.pxhere.com/images/84/de/c46800ed7f9823cc820f44de5898-1575569.jpg!d', 1, 2);
 
+INSERT INTO tb_enrollment (user_id, offer_id ,enroll_moment, refund_moment, available, only_update)
+    VALUES (1,1,TIMESTAMP WITH TIME ZONE '2020-11-20T13:00:00Z',null,true,false),
+        (2,1,TIMESTAMP WITH TIME ZONE '2020-11-20T14:00:00Z',null,true,false);
+
