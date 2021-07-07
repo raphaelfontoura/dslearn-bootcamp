@@ -6,8 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 
-@Getter
-@Setter
+@Getter @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
@@ -54,7 +53,7 @@ public class Enrollment implements Serializable {
     @NoArgsConstructor
     @AllArgsConstructor
     @Embeddable
-    public class EnrollmentPK implements Serializable{
+    public static class EnrollmentPK implements Serializable{
         @ManyToOne
         @JoinColumn(name = "user_id")
         private User user;

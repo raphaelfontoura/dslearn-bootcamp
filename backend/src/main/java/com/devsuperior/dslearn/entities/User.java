@@ -1,8 +1,6 @@
 package com.devsuperior.dslearn.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,17 +18,23 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
     private Long id;
+    @Getter @Setter
     private String name;
+    @Getter @Setter
     private String email;
+    @Getter @Setter
     private String password;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "tb_user_role",
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @Getter
     private Set<Role> roles = new HashSet<>();
 
     @OneToMany(mappedBy = "user")
+    @Getter
     private List<Notification> notifications = new ArrayList<>();
 }

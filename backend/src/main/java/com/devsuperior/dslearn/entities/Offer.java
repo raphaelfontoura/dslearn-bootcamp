@@ -32,5 +32,6 @@ public class Offer implements Serializable {
     private Course course;
 
     @OneToMany(mappedBy = "offer")
+    @Setter(AccessLevel.NONE)
     private List<Resource> resources = new ArrayList<>();
 }
