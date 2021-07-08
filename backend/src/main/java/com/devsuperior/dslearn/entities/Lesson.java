@@ -4,7 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -33,6 +35,10 @@ public abstract class Lesson implements Serializable {
             })
     @Setter(AccessLevel.NONE)
     private Set<Enrollment> enrollmentsDone = new HashSet<>();
+
+    @Setter(AccessLevel.NONE)
+    @OneToMany(mappedBy = "lesson")
+    private List<Deliver> deliveries = new ArrayList<>();
 
     public Lesson(Long id, String title, Integer position, Section section) {
         this.id = id;
