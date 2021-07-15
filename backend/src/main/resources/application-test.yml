@@ -11,3 +11,12 @@ spring:
       enabled: true
       path: /h2-console
 
+security:
+  oauth2:
+    client:
+      client-id: dslearn
+      client-secret: dslearn123
+
+jwt:
+  secret: MY-JWT-SECRET
+  duration: 86400
