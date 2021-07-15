@@ -1,9 +1,9 @@
 INSERT INTO TB_USER (name, email, password) VALUES
-    ('Alex Brown', 'alex@gmail.com', '$2y$10$xj5j16NqX8MlfQk0gGitseu5M.PtqKneLobRW3WigfdCFDImfE1fi');
+    ('Alex Brown', 'alex@gmail.com', '$2y$10$WVbV./nf2AJQ7p55l0r58O83Fgj2XEf9/Tt3xpJA9aVtx/RxTOlbe');
 INSERT INTO TB_USER (name, email, password) VALUES
-    ('Bob Brown', 'bob@gmail.com', '$2y$10$xj5j16NqX8MlfQk0gGitseu5M.PtqKneLobRW3WigfdCFDImfE1fi');
+    ('Bob Brown', 'bob@gmail.com', '$2y$10$WVbV./nf2AJQ7p55l0r58O83Fgj2XEf9/Tt3xpJA9aVtx/RxTOlbe');
 INSERT INTO TB_USER (name, email, password) VALUES
-    ('Maria Green', 'maria@gmail.com', '$2y$10$xj5j16NqX8MlfQk0gGitseu5M.PtqKneLobRW3WigfdCFDImfE1fi');
+    ('Maria Green', 'maria@gmail.com', '$2y$10$WVbV./nf2AJQ7p55l0r58O83Fgj2XEf9/Tt3xpJA9aVtx/RxTOlbe');
 
 INSERT INTO tb_role (authority) VALUES ('ROLE_STUDENT'),('ROLE_INSTRUCTOR'),('ROLE_ADMIN');
 
