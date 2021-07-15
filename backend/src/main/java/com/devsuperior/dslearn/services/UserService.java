@@ -1,7 +1,9 @@
 package com.devsuperior.dslearn.services;
 
+import com.devsuperior.dslearn.dto.UserDTO;
 import com.devsuperior.dslearn.entities.User;
 import com.devsuperior.dslearn.repositories.UserRepository;
+import com.devsuperior.dslearn.services.exceptions.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
@@ -29,5 +31,10 @@ public class UserService implements UserDetailsService {
         }
         logger.info("User found: " + username);
         return user;
+    }
+
+    public UserDTO findById(Long userId) {
+        User user = repository.findById(userId).orElseThrow( () -> new ResourceNotFoundException("User not found."));
+        return new UserDTO(user);
     }
 }
