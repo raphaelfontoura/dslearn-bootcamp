@@ -18,9 +18,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements UserDetailsService {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+
     @Autowired
     private UserRepository repository;
-    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
+    @Autowired
+    private AuthService authService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -34,6 +37,7 @@ public class UserService implements UserDetailsService {
     }
 
     public UserDTO findById(Long userId) {
+        authService.validateSelfOrAdmin(userId);
         User user = repository.findById(userId).orElseThrow( () -> new ResourceNotFoundException("User not found."));
         return new UserDTO(user);
     }
