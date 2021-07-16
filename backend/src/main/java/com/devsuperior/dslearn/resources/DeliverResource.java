@@ -4,6 +4,7 @@ import com.devsuperior.dslearn.dto.DeliverDecisionDTO;
 import com.devsuperior.dslearn.services.DeliverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,7 +15,7 @@ public class DeliverResource {
     private DeliverService service;
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Void> updateDeliver(@PathVariable Long id, @RequestBody DeliverDecisionDTO dto) {
+    public ResponseEntity<Void> saveRevision(@PathVariable Long id, @RequestBody DeliverDecisionDTO dto) {
         service.saveRavision(id,dto);
         return ResponseEntity.noContent().build();
     }
