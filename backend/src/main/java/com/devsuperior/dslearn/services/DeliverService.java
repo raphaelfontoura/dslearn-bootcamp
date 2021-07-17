@@ -13,6 +13,8 @@ public class DeliverService {
 
     @Autowired
     private DeliverRepository repository;
+    @Autowired
+    private NotificationService notificationService;
 
     @PreAuthorize("hasAnyRole('ADMIN','INSTRUCTOR')")
     @Transactional
@@ -22,5 +24,6 @@ public class DeliverService {
         deliver.setFeedback(dto.getFeedback());
         deliver.setCorrectCount(dto.getCorrectCount());
         repository.save(deliver);
+        notificationService.saveDeliverNotification(deliver);
     }
 }
