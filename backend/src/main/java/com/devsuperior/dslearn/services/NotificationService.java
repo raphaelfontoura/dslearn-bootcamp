@@ -4,6 +4,7 @@ import com.devsuperior.dslearn.dto.NotificationDTO;
 import com.devsuperior.dslearn.entities.Deliver;
 import com.devsuperior.dslearn.entities.Notification;
 import com.devsuperior.dslearn.entities.User;
+import com.devsuperior.dslearn.observers.DeliverRevisionObserver;
 import com.devsuperior.dslearn.repositories.NotificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,15 +12,24 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
 import java.time.Instant;
 
 @Service
-public class NotificationService {
+public class NotificationService implements DeliverRevisionObserver {
 
     @Autowired
     private NotificationRepository repository;
     @Autowired
     private AuthService authService;
+
+    @Autowired
+    private DeliverService deliverService;
+
+    @PostConstruct
+    private void Initialize() {
+        deliverService.subscribeDeliverRevisionObserver(this);
+    }
 
     @Transactional(readOnly = true)
     public Page<NotificationDTO> notificationsForCurrentUser(boolean unreadOnly, Pageable pageable) {
@@ -41,5 +51,10 @@ public class NotificationService {
 
         Notification notification = new Notification(null,text,moment,false,route,user);
         repository.save(notification);
+    }
+
+    @Override
+    public void onSaveDeliver(Deliver deliver) {
+        saveDeliverNotification(deliver);
     }
 }
