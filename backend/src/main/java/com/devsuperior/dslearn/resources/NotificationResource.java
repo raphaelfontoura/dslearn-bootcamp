@@ -24,6 +24,7 @@ public class NotificationResource {
             @RequestParam(value = "page", defaultValue = "0") Integer page,
             @RequestParam(value = "size", defaultValue = "12") Integer size
             ) {
+        
         PageRequest pageRequest = PageRequest.of(page,size);
         Page<NotificationDTO> notificationDTOS = service.notificationsForCurrentUser(unreadOnly, pageRequest);
 
